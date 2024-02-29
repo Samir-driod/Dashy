@@ -15,13 +15,33 @@
     height: 100%;
     overflow: hidden; /* Prevent scroll bars */
 }
-
+        #clickTarget {
+            width: 100px;
+            height: 50px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+        }
 iframe {
     width: 100%;
     height: 100%;
     border: none; /* Remove border */
     display: block; /* Make it a block element */
 }</style>
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to simulate a click event at the center of the page
+            function simulateClick() {
+                var clickTarget = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2);
+                clickTarget.click();
+            }
+
+            // Call the function after a delay to ensure the page is fully loaded
+            setTimeout(simulateClick, 1000); // Adjust the delay as needed
+        });
+    </script>
     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=kPvo9CMwz9oLGJ0o&amp;start=42;autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </body>
 </html>
