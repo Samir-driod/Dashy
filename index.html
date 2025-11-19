@@ -23,12 +23,22 @@
     </style>
 </head>
 <body>
+    
     <video id="vid" src="video.mp4" autoplay loop ></video>
     <script>
         const v = document.getElementById('vid');
-        v.play().catch(()=>{});
-       // v.volume = 1.0;
-
+        v.volume = 1.0;
+        // Play video with sound when mouse moves
+        let unlocked = false;
+        document.addEventListener('mousemove', () => {
+            if (!unlocked) {
+                v.muted = false;
+                v.play().catch(()=>{});
+                unlocked = true;
+            }
+        });
+            document.getElementById('startBtn').style.display = 'none';
+        });(()=>{});
     </script>
 </body>
 </html>
