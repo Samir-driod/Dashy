@@ -23,12 +23,17 @@
     </style>
 </head>
 <body>
-        <video id="vid" src="video.mp4" autoplay loop></video>
+    <div id="startBtn" style="position:fixed; inset:0; background:black; color:white; display:flex; align-items:center; justify-content:center; font-size:2rem; cursor:pointer;">Tap to Start</div>
+    <video id="vid" src="video.mp4" autoplay loop muted></video>
     <script>
         const v = document.getElementById('vid');
         v.volume = 1.0;
-        // Attempt to play with sound (may require user interaction depending on browser)
-        v.play().catch(()=>{});
+        // Wait for user gesture to enable audio
+        document.getElementById('startBtn').addEventListener('click', () => {
+            v.muted = false;
+            v.play().catch(()=>{});
+            document.getElementById('startBtn').style.display = 'none';
+        });(()=>{});
     </script>
 </body>
 </html>
