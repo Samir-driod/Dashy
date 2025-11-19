@@ -28,12 +28,7 @@
         const v = document.getElementById('vid');
         v.play().catch(()=>{});
        // v.volume = 1.0;
-        // Wait for user gesture to enable audio
-        document.getElementById('startBtn').addEventListener('click', () => {
-            v.muted = false;
-            v.play().catch(()=>{});
-            document.getElementById('startBtn').style.display = 'none';
-        });(()=>{});
+
     </script>
 </body>
 </html>
