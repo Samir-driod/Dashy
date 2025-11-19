@@ -1,47 +1,34 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Full Screen Video</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background: black;
+        }
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body>
-    <style>html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden; /* Prevent scroll bars */
-}
-        #clickTarget {
-            width: 100px;
-            height: 50px;
-            background-color: #007bff;
-            color: white;
-            text-align: center;
-            line-height: 50px;
-            cursor: pointer;
-        }
-iframe {
-    width: 100%;
-    height: 100%;
-    border: none; /* Remove border */
-    display: block; /* Make it a block element */
-}</style>
-        <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Function to simulate a click event at the center of the page
-            function simulateClick() {
-                var clickTarget = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2);
-                clickTarget.click();
-            }
-
-            // Call the function after a delay to ensure the page is fully loaded
-            setTimeout(simulateClick, 1000); // Adjust the delay as needed
-        });
+        <video id="vid" src="video.mp4" autoplay loop></video>
+    <script>
+        const v = document.getElementById('vid');
+        v.volume = 1.0;
+        // Attempt to play with sound (may require user interaction depending on browser)
+        v.play().catch(()=>{});
     </script>
-    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=kPvo9CMwz9oLGJ0o?autoplay=1;start=42" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </body>
 </html>
