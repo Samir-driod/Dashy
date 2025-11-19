@@ -23,10 +23,10 @@
     </style>
 </head>
 <body>
-    <div id="startBtn" style="position:fixed; inset:0; background:black; color:white; display:flex; align-items:center; justify-content:center; font-size:2rem; cursor:pointer;">Tap to Start</div>
-    <video id="vid" src="video.mp4" autoplay loop muted></video>
+    <video id="vid" src="video.mp4" autoplay loop ></video>
     <script>
         const v = document.getElementById('vid');
+        v.play().catch(()=>{});
        // v.volume = 1.0;
         // Wait for user gesture to enable audio
         document.getElementById('startBtn').addEventListener('click', () => {
